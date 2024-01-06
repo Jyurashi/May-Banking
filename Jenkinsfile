@@ -8,11 +8,6 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/devopscbabu/May-Banking.git'
             }
         }
-        stage('Build Package') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
         stage('HTML Reports') {
             steps {
                 publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Banking-Project/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
